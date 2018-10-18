@@ -1,10 +1,7 @@
 package api;
-
-
 import http.HttpRequest;
 import http.HttpResponse;
 import http.HttpStatus;
-
 public class Dispatcher {
 
     public void submit(HttpRequest request, HttpResponse response) {
@@ -13,13 +10,9 @@ public class Dispatcher {
             switch (request.getMethod()) {
                 case POST:
                 case GET:
-
                 case PUT:
-
                 case PATCH:
-
                 case DELETE:
-
                 default:
             }
         } catch (Exception exception) {
