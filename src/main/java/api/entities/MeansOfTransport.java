@@ -1,17 +1,17 @@
 package api.entities;
 
-public class Means_of_transport {
+public class MeansOfTransport {
     private String id;
     private int price;
     private String description;
 
-    public Means_of_transport(String id, int price, String description) {
+    public MeansOfTransport(String id, int price, String description) {
         this.id = id;
         this.price = price;
         this.description = description;
     }
 
-    public Means_of_transport(String id) { this.id = id; }
+    public MeansOfTransport(String id) { this.id = id; }
 
     public String getId() {
         return id;

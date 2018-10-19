@@ -7,9 +7,9 @@ public class Trip {
     private String id;
     private String origin;
     private String destination;
-    private LocalDateTime trip_date;
+    private LocalDateTime tripDate;
     private List<Client> clients;
-    private List<Means_of_transport> meansList;
+    private List<MeansOfTransport> meansList;
     private State state;
 
     public Trip(String id, String origin, String destination) {
@@ -18,11 +18,11 @@ public class Trip {
         this.destination = destination;
     }
 
-    public Trip(String id, String origin, String destination, LocalDateTime trip_date, List<Client> clients, List<Means_of_transport> meansList, State state) {
+    public Trip(String id, String origin, String destination, LocalDateTime tripdate, List<Client> clients, List<MeansOfTransport> meansList, State state) {
         this.id = id;
         this.origin = origin;
         this.destination = destination;
-        this.trip_date = trip_date;
+        this.tripDate = tripdate;
         this.clients = clients;
         this.meansList = meansList;
         this.state = state;
@@ -52,12 +52,12 @@ public class Trip {
         this.destination = destination;
     }
 
-    public LocalDateTime getTrip_date() {
-        return trip_date;
+    public void setTripDate(LocalDateTime tripDate) {
+        this.tripDate = tripDate;
     }
 
-    public void setTrip_date(LocalDateTime trip_date) {
-        this.trip_date = trip_date;
+    public LocalDateTime getTripDate() {
+        return tripDate;
     }
 
     public List<Client> getClients() {
@@ -68,11 +68,11 @@ public class Trip {
         this.clients = clients;
     }
 
-    public List<Means_of_transport> getMeansList() {
+    public List<MeansOfTransport> getMeansList() {
         return meansList;
     }
 
-    public void setMeansList(List<Means_of_transport> meansList) {
+    public void setMeansList(List<MeansOfTransport> meansList) {
         this.meansList = meansList;
     }
 

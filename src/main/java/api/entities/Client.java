@@ -3,12 +3,12 @@ package api.entities;
 public class Client {
     private String id;
     private String name;
-    private String first_surname;
+    private String firstsurname;
 
     public Client(String id, String name, String first_surname) {
         this.id = id;
         this.name = name;
-        this.first_surname = first_surname;
+        this.firstsurname = first_surname;
     }
 
     public Client(String id, String name) {
@@ -33,10 +33,10 @@ public class Client {
     }
 
     public String getFirst_surname() {
-        return first_surname;
+        return firstsurname;
     }
 
     public void setFirst_surname(String first_surname) {
-        this.first_surname = first_surname;
+        this.firstsurname = first_surname;
     }
 }
