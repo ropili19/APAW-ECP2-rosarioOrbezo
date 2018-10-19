@@ -2,11 +2,11 @@ package api.entities;
 
 public class Luggage {
     private String id;
-    private boolean ishand_lugagge;
+    private boolean ishandLugagge;
 
-    public Luggage(String id, boolean ishand_lugagge) {
+    public Luggage(String id, boolean ishandlugagge) {
         this.id = id;
-        this.ishand_lugagge = ishand_lugagge;
+        this.ishandLugagge = ishandlugagge;
     }
 
     public Luggage(String id) {
@@ -21,11 +21,12 @@ public class Luggage {
         this.id = id;
     }
 
-    public boolean isIshand_lugagge() {
-        return ishand_lugagge;
+    public boolean isIshandLugagge() {
+        return ishandLugagge;
     }
 
-    public void setIshand_lugagge(boolean ishand_lugagge) {
-        this.ishand_lugagge = ishand_lugagge;
+    public void setIshandLugagge(boolean ishandLugagge) {
+        this.ishandLugagge = ishandLugagge;
     }
+
 }
