@@ -6,7 +6,7 @@
 
 ### Estado del código
 
-[![Build Status](https://travis-ci.org/ropili19/APAW.-ECP2.-rosario.orbezo.svg?branch=master)](https://travis-ci.org/ropili19/APAW-ECP2-rosarioOrbezo)
+[![Build Status](https://travis-ci.org/ropili19/APAW-ECP2-rosarioOrbezo.svg?branch=master)](https://travis-ci.org/ropili19/APAW-ECP2-rosarioOrbezo.svg?branch=master)
 
 <!---
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3AAPAW-pd&metric=alert_status)
