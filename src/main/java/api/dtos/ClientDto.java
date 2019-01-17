@@ -5,14 +5,16 @@ public class ClientDto {
     private String name;
     private String firstsurname;
 
-    public ClientDto(String name,String firstsurname) {
+    public ClientDto(String name, String firstsurname) {
         this.name = name;
-        this.firstsurname=firstsurname;
+        this.firstsurname = firstsurname;
     }
+
     public ClientDto(String name) {
-        this(name,null);
+        this(name, null);
 
     }
+
     public String getName() {
         return name;
     }

@@ -5,9 +5,10 @@ import api.daos.DaoFactory;
 
 public class DaoMemoryFactory extends DaoFactory {
     private ClientsDao clientsdao;
+
     @Override
     public ClientsDao getClientsDao() {
-        if(clientsdao == null){
+        if (clientsdao == null) {
             clientsdao = new ClientsDaoMemory();
         }
         return clientsdao;

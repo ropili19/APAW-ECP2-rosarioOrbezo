@@ -1,4 +1,5 @@
 package api;
+
 import api.apiControllers.ClientsApiController;
 import api.daos.DaoFactory;
 import api.daos.memory.DaoMemoryFactory;
@@ -8,11 +9,14 @@ import exceptions.RequestInvalidException;
 import http.HttpRequest;
 import http.HttpResponse;
 import http.HttpStatus;
+
 public class Dispatcher {
     private ClientsApiController clientsApiController = new ClientsApiController();
+
     static {
         DaoFactory.setFactory(new DaoMemoryFactory());//singleton
     }
+
     public void submit(HttpRequest request, HttpResponse response) {
         String ERROR_MESSAGE = "{'error':'%S'}";
         try {
@@ -33,14 +37,15 @@ public class Dispatcher {
 
             }
         } catch (ArgumentNotValidException | RequestInvalidException exception) {
-                response.setBody(String.format(ERROR_MESSAGE, exception.getMessage()));
-                response.setStatus(HttpStatus.BAD_REQUEST);
-        }catch (Exception exception) {  // Unexpected
+            response.setBody(String.format(ERROR_MESSAGE, exception.getMessage()));
+            response.setStatus(HttpStatus.BAD_REQUEST);
+        } catch (Exception exception) {  // Unexpected
             exception.printStackTrace();
             response.setBody(String.format(ERROR_MESSAGE, exception));
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     private void doPost(HttpRequest request, HttpResponse response) {
         if (request.isEqualsPath(clientsApiController.CLIENTS)) {
             response.setBody(this.clientsApiController.create((ClientDto) request.getBody()));
