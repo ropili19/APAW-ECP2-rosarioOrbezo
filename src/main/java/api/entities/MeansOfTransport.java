@@ -11,7 +11,9 @@ public class MeansOfTransport {
         this.description = description;
     }
 
-    public MeansOfTransport(String id) { this.id = id; }
+    public MeansOfTransport(String id) {
+        this.id = id;
+    }
 
     public String getId() {
         return id;
