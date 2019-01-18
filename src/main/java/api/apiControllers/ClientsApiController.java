@@ -6,7 +6,7 @@ import exceptions.ArgumentNotValidException;
 
 public class ClientsApiController {
     public static final String CLIENTS = "/clients";
-    public static final String ID = "/{id}";
+    public static final String ID_ID = "/{id}";
     private ClientBusinessController clientsBusinessController = new ClientBusinessController();
 
     public String create(ClientDto clientDto) {
@@ -19,5 +19,11 @@ public class ClientsApiController {
         if (property == null) {
             throw new ArgumentNotValidException(message + "is NULL");
         }
+    }
+
+    public void update(String id, ClientDto clientDto) {
+        this.validate(clientDto, "userDto");
+        this.validate(clientDto.getName(), "ClientDto surname");
+        this.clientsBusinessController.update(id, clientDto);
     }
 }

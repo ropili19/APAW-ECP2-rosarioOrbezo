@@ -19,8 +19,9 @@ public class Client {
         return name;
     }
 
-    public void setName(String name) {
+    public Client setName(String name) {
         this.name = name;
+        return this;
     }
 
 
@@ -32,6 +33,10 @@ public class Client {
     public Client setId(String id) {
         this.id = id;
         return this;
+    }
+
+    public String getSurname() {
+        return surname;
     }
 
     @Override
