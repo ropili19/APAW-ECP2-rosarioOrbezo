@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ClientsIT {
 
-
     @Test
     void testCreateClient() {
         this.createClient();
@@ -23,7 +22,6 @@ public class ClientsIT {
         HttpRequest request = HttpRequest.builder(ClientsApiController.CLIENTS).body(new ClientDto("rosario", "orbezo")).post();
         return (String) new Client().submit(request).getBody();
     }
-
 
     @Test
     void testCreateClientWithoutClientDto() {

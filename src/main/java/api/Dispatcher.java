@@ -45,7 +45,7 @@ public class Dispatcher {
         }catch (NotFoundException exception){
             response.setBody(String.format(ERROR_MESSAGE, exception.getMessage()));
             response.setStatus(HttpStatus.NOT_FOUND);
-        }catch (Exception exception) {  // Unexpected
+        }catch (Exception exception) {
             exception.printStackTrace();
             response.setBody(String.format(ERROR_MESSAGE, exception));
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
