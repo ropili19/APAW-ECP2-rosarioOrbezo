@@ -3,11 +3,11 @@ package api.entities;
 public class Client {
     private String id;
     private String name;
-    private String firstsurname;
+    private String surname;
 
-    public Client(String name, String firstsurname) {
+    public Client(String name, String surname) {
         this.name = name;
-        this.firstsurname = firstsurname;
+        this.surname = surname;
     }
 
     public String getId() {
@@ -23,12 +23,9 @@ public class Client {
         this.name = name;
     }
 
-    public String getFirstsurname() {
-        return firstsurname;
-    }
 
-    public Client setFirstsurname(String firstsurname) {
-        this.firstsurname = firstsurname;
+    public Client setSurname(String surname) {
+        this.surname = surname;
         return this;
     }
 
@@ -42,7 +39,7 @@ public class Client {
         return "Client{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", firstsurname='" + firstsurname + '\'' +
+                ", surname='" + surname + '\'' +
                 '}';
     }
 }

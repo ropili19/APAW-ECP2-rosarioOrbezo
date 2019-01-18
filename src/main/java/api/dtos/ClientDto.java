@@ -3,11 +3,11 @@ package api.dtos;
 public class ClientDto {
 
     private String name;
-    private String firstsurname;
+    private String surname;
 
-    public ClientDto(String name, String firstsurname) {
+    public ClientDto(String name, String surname) {
         this.name = name;
-        this.firstsurname = firstsurname;
+        this.surname = surname;
     }
 
     public ClientDto(String name) {
@@ -23,19 +23,19 @@ public class ClientDto {
         this.name = name;
     }
 
-    public String getFirstsurname() {
-        return firstsurname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setFirstsurname(String firstsurname) {
-        this.firstsurname = firstsurname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Override
     public String toString() {
         return "ClientDto{" +
                 "name='" + name + '\'' +
-                ", firstsurname='" + firstsurname + '\'' +
+                ", surname='" + surname + '\'' +
                 '}';
     }
 }

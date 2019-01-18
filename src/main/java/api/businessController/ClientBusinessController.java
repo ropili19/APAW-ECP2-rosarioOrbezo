@@ -6,7 +6,7 @@ import api.entities.Client;
 
 public class ClientBusinessController {
     public String create(ClientDto clientdto) {
-        Client client = new Client(clientdto.getName(), clientdto.getFirstsurname());
+        Client client = new Client(clientdto.getName(), clientdto.getSurname());
         DaoFactory.getFactory().getClientsDao().save(client);
         return client.getId();
 
