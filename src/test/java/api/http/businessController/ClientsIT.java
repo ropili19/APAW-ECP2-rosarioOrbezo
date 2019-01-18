@@ -38,4 +38,29 @@ public class ClientsIT {
         HttpException exception = assertThrows(HttpException.class, () -> new Client().submit(request));
         assertEquals(HttpStatus.BAD_REQUEST, exception.getHttpStatus());
     }
+
+    @Test
+    void testUpdateUser() {
+        String id = this.createClient();
+        HttpRequest request = HttpRequest.builder(ClientsApiController.CLIENTS).path(ClientsApiController.ID_ID)
+                .expandPath(id).body(new ClientDto("rosario")).put();
+        new Client().submit(request);
+    }
+
+    @Test
+    void testUpdateUserWithoutUserDto() {
+        String id = this.createClient();
+        HttpRequest request = HttpRequest.builder(ClientsApiController.CLIENTS).path(ClientsApiController.ID_ID)
+                .expandPath(id).body(null).put();
+        HttpException exception = assertThrows(HttpException.class, () -> new Client().submit(request));
+        assertEquals(HttpStatus.BAD_REQUEST, exception.getHttpStatus());
+    }
+
+    @Test
+    void testUpdateUserNotFoundException() {
+        HttpRequest request = HttpRequest.builder(ClientsApiController.CLIENTS).path(ClientsApiController.ID_ID)
+                .expandPath("incorrecto").body(new ClientDto("rosario")).put();
+        HttpException exception = assertThrows(HttpException.class, () -> new Client().submit(request));
+        assertEquals(HttpStatus.NOT_FOUND, exception.getHttpStatus());
+    }
 }
