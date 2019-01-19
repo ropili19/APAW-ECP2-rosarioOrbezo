@@ -3,10 +3,8 @@ package api.dtos;
 import api.entities.Client;
 import api.entities.MeansOfTransport;
 import api.entities.State;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class TripsDto {
 
     private String origin;
@@ -16,7 +14,7 @@ public class TripsDto {
     private State state;
 
     public TripsDto(String origin, String destination) {
-        this(origin,destination,new ArrayList<Client>(),new ArrayList<MeansOfTransport>(),State.PREPAID);
+        this(origin, destination, new ArrayList<Client>(), new ArrayList<MeansOfTransport>(), State.PREPAID);
     }
 
     public TripsDto(String origin, String destination, List<Client> clients, List<MeansOfTransport> meanlist, State state) {
@@ -24,8 +22,9 @@ public class TripsDto {
         this.destination = destination;
         this.clients = clients;
         this.meanlist = meanlist;
-        this.state =state;
+        this.state = state;
     }
+
     public String getOrigin() {
         return origin;
     }

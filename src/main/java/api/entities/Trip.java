@@ -1,5 +1,4 @@
 package api.entities;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class Trip {
         this.destination = destination;
     }
 
-    public Trip( String origin, String destination, List<Client> clients, List<MeansOfTransport> meansList, State state) {
+    public Trip(String origin, String destination, List<Client> clients, List<MeansOfTransport> meansList, State state) {
 
         this.origin = origin;
         this.destination = destination;
@@ -32,7 +31,8 @@ public class Trip {
     }
 
     public Trip setId(String id) {
-        this.id = id;  return this;
+        this.id = id;
+        return this;
     }
 
     public String getOrigin() {
@@ -40,7 +40,8 @@ public class Trip {
     }
 
     public Trip setOrigin(String origin) {
-        this.origin = origin;    return this;
+        this.origin = origin;
+        return this;
     }
 
     public String getDestination() {
@@ -48,11 +49,13 @@ public class Trip {
     }
 
     public Trip setDestination(String destination) {
-        this.destination = destination;return this;
+        this.destination = destination;
+        return this;
     }
 
     public Trip setTripDate(LocalDateTime tripDate) {
-        this.tripDate = tripDate; return this;
+        this.tripDate = tripDate;
+        return this;
     }
 
     public LocalDateTime getTripDate() {
@@ -64,7 +67,8 @@ public class Trip {
     }
 
     public Trip setClients(List<Client> clients) {
-        this.clients = clients; return this;
+        this.clients = clients;
+        return this;
     }
 
     public List<MeansOfTransport> getMeansList() {
@@ -72,7 +76,8 @@ public class Trip {
     }
 
     public Trip setMeansList(List<MeansOfTransport> meansList) {
-        this.meansList = meansList;return this;
+        this.meansList = meansList;
+        return this;
     }
 
     public State getState() {
@@ -80,6 +85,7 @@ public class Trip {
     }
 
     public Trip setState(State state) {
-        this.state = state; return this;
+        this.state = state;
+        return this;
     }
 }

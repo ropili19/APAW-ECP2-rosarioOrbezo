@@ -1,8 +1,5 @@
 package api.apiControllers;
-
-import api.businessController.ClientBusinessController;
 import api.businessController.TripsBusinessController;
-import api.dtos.ClientDto;
 import api.dtos.TripsDto;
 import exceptions.ArgumentNotValidException;
 
@@ -24,6 +21,4 @@ public class TripsApiController {
             throw new ArgumentNotValidException(message + "is NULL");
         }
     }
-
-
 }
