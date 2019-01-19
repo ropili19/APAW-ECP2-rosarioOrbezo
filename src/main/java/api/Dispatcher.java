@@ -1,9 +1,12 @@
 package api;
 
 import api.apiControllers.ClientsApiController;
+import api.apiControllers.MeansTransportApiController;
 import api.daos.DaoFactory;
 import api.daos.memory.DaoMemoryFactory;
 import api.dtos.ClientDto;
+import api.dtos.MeansOfTransportDto;
+import api.entities.MeansOfTransport;
 import exceptions.ArgumentNotValidException;
 import exceptions.NotFoundException;
 import exceptions.RequestInvalidException;
@@ -13,6 +16,7 @@ import http.HttpStatus;
 
 public class Dispatcher {
     private ClientsApiController clientsApiController = new ClientsApiController();
+    private MeansTransportApiController meanssApiController = new MeansTransportApiController();
     public static final String ID_ID = "/{id}";
     static {
         DaoFactory.setFactory(new DaoMemoryFactory());//singleton
@@ -55,13 +59,15 @@ public class Dispatcher {
     private void doPost(HttpRequest request, HttpResponse response) {
         if (request.isEqualsPath(clientsApiController.CLIENTS)) {
             response.setBody(this.clientsApiController.create((ClientDto) request.getBody()));
+        }  else if (request.isEqualsPath(MeansTransportApiController.MEANSOFTRANSPORT)) {
+            response.setBody(this.meanssApiController.create((MeansOfTransportDto) request.getBody()));
         } else {
             throw new RequestInvalidException("method error: " + request.getMethod());
         }
     }
     private void doPut(HttpRequest request) {
         if (request.isEqualsPath(ClientsApiController.CLIENTS + ClientsApiController.ID_ID)) {
-            this.clientsApiController.update(request.getPath(1), (ClientDto) request.getBody());
+            this.clientsApiController.update(request.getPath(0), (ClientDto) request.getBody());
         } else {
             throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
         }

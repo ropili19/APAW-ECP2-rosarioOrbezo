@@ -2,11 +2,10 @@ package api.entities;
 
 public class MeansOfTransport {
     private String id;
-    private int price;
+    private Integer price;
     private String description;
 
-    public MeansOfTransport(String id, int price, String description) {
-        this.id = id;
+    public MeansOfTransport( Integer price, String description) {
         this.price = price;
         this.description = description;
     }
@@ -19,23 +18,32 @@ public class MeansOfTransport {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public MeansOfTransport setId(String id) {
+        this.id = id; return this;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public MeansOfTransport setPrice(Integer price) {
+        this.price = price; return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public MeansOfTransport setDescription(String description) {
+        this.description = description; return this;
+    }
+
+    @Override
+    public String toString() {
+        return "MeansOfTransport{" +
+                "id='" + id + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
