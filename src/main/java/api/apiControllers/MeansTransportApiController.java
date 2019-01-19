@@ -22,6 +22,4 @@ public class MeansTransportApiController {
             throw new ArgumentNotValidException(message + "is NULL");
         }
     }
-
-
 }

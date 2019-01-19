@@ -1,6 +1,5 @@
 package api.daos.memory;
 
-
 import api.daos.MeansOfTransportDao;
 import api.entities.MeansOfTransport;
 
@@ -14,7 +13,6 @@ public class MeansOfTransportDaoMemory extends GenericDaoMemory<MeansOfTransport
     public void setId(MeansOfTransport meanOftransp, String id) {
         meanOftransp.setId(id);
     }
-
 
 }
 

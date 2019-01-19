@@ -15,6 +15,4 @@ public class ClientsDaoMemory extends GenericDaoMemory<Client> implements Client
     public void setId(Client client, String id) {
         client.setId(id);
     }
-
-
 }

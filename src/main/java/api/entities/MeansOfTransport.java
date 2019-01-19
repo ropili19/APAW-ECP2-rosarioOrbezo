@@ -5,7 +5,7 @@ public class MeansOfTransport {
     private Integer price;
     private String description;
 
-    public MeansOfTransport( Integer price, String description) {
+    public MeansOfTransport(Integer price, String description) {
         this.price = price;
         this.description = description;
     }
@@ -19,7 +19,8 @@ public class MeansOfTransport {
     }
 
     public MeansOfTransport setId(String id) {
-        this.id = id; return this;
+        this.id = id;
+        return this;
     }
 
     public Integer getPrice() {
@@ -27,7 +28,8 @@ public class MeansOfTransport {
     }
 
     public MeansOfTransport setPrice(Integer price) {
-        this.price = price; return this;
+        this.price = price;
+        return this;
     }
 
     public String getDescription() {
@@ -35,7 +37,8 @@ public class MeansOfTransport {
     }
 
     public MeansOfTransport setDescription(String description) {
-        this.description = description; return this;
+        this.description = description;
+        return this;
     }
 
     @Override

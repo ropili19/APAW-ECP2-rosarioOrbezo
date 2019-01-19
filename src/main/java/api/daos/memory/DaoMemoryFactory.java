@@ -3,7 +3,6 @@ package api.daos.memory;
 import api.daos.ClientsDao;
 import api.daos.DaoFactory;
 import api.daos.MeansOfTransportDao;
-import api.entities.MeansOfTransport;
 
 public class DaoMemoryFactory extends DaoFactory {
     private ClientsDao clientsdao;
