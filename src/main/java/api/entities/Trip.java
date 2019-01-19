@@ -1,5 +1,4 @@
 package api.entities;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,17 +11,16 @@ public class Trip {
     private List<MeansOfTransport> meansList;
     private State state;
 
-    public Trip(String id, String origin, String destination) {
-        this.id = id;
+    public Trip(String origin, String destination) {
         this.origin = origin;
         this.destination = destination;
     }
 
-    public Trip(String id, String origin, String destination, LocalDateTime tripdate, List<Client> clients, List<MeansOfTransport> meansList, State state) {
-        this.id = id;
+    public Trip(String origin, String destination, List<Client> clients, List<MeansOfTransport> meansList, State state) {
+
         this.origin = origin;
         this.destination = destination;
-        this.tripDate = tripdate;
+        this.tripDate = LocalDateTime.now();
         this.clients = clients;
         this.meansList = meansList;
         this.state = state;
@@ -32,28 +30,32 @@ public class Trip {
         return id;
     }
 
-    public void setId(String id) {
+    public Trip setId(String id) {
         this.id = id;
+        return this;
     }
 
     public String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(String origin) {
+    public Trip setOrigin(String origin) {
         this.origin = origin;
+        return this;
     }
 
     public String getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    public Trip setDestination(String destination) {
         this.destination = destination;
+        return this;
     }
 
-    public void setTripDate(LocalDateTime tripDate) {
+    public Trip setTripDate(LocalDateTime tripDate) {
         this.tripDate = tripDate;
+        return this;
     }
 
     public LocalDateTime getTripDate() {
@@ -64,23 +66,26 @@ public class Trip {
         return clients;
     }
 
-    public void setClients(List<Client> clients) {
+    public Trip setClients(List<Client> clients) {
         this.clients = clients;
+        return this;
     }
 
     public List<MeansOfTransport> getMeansList() {
         return meansList;
     }
 
-    public void setMeansList(List<MeansOfTransport> meansList) {
+    public Trip setMeansList(List<MeansOfTransport> meansList) {
         this.meansList = meansList;
+        return this;
     }
 
     public State getState() {
         return state;
     }
 
-    public void setState(State state) {
+    public Trip setState(State state) {
         this.state = state;
+        return this;
     }
 }
