@@ -19,4 +19,5 @@ public abstract class DaoFactory {
 
     public abstract ClientsDao getClientsDao();
     public abstract MeansOfTransportDao getMeansOfTransportDao();
+    public abstract TripsDao getTripsDao();
 }
