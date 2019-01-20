@@ -77,6 +77,7 @@ public class ClientsIT {
         List<ClientDto> clients = (List<ClientDto>) new Client().submit(request).getBody();
         assertTrue(clients.size() >= MAX_ELEMENTS);
     }
+
     @Test
     void testDelete() {
         String id = this.createClient();

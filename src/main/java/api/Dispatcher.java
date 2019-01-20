@@ -33,7 +33,7 @@ public class Dispatcher {
                     this.doPost(request, response);
                     break;
                 case GET:
-                    this.doGet(request,response);
+                    this.doGet(request, response);
                     break;
                 case PUT:
                     this.doPut(request);
