@@ -1,10 +1,16 @@
 package api.dtos;
 
+import api.entities.Client;
+
 public class ClientDto {
 
     private String name;
     private String surname;
 
+    public ClientDto(Client client) {
+        this.name = client.getName();
+        this.surname = client.getSurname();
+    }
     public ClientDto(String name, String surname) {
         this.name = name;
         this.surname = surname;
