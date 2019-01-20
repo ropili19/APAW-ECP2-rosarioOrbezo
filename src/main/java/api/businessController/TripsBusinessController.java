@@ -11,4 +11,8 @@ public class TripsBusinessController {
         return trip.getId();
 
     }
+    public void delete(String id) {
+        DaoFactory.getFactory().getClientsDao().deleteById(id);
+    }
+
 }

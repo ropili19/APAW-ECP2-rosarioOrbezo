@@ -77,4 +77,15 @@ public class ClientsIT {
         List<ClientDto> clients = (List<ClientDto>) new Client().submit(request).getBody();
         assertTrue(clients.size() >= MAX_ELEMENTS);
     }
+    @Test
+    void testDelete() {
+        String id = this.createClient();
+        HttpRequest request1 = HttpRequest.builder(ClientsApiController.CLIENTS).get();
+        int count = ((List<ClientDto>) new Client().submit(request1).getBody()).size();
+        HttpRequest request2 = HttpRequest.builder(ClientsApiController.CLIENTS).path(ClientsApiController.ID_ID)
+                .expandPath(id).delete();
+        new Client().submit(request2);
+        assertTrue(((List<ClientDto>) new Client().submit(request1).getBody()).size() < count);
+    }
+
 }

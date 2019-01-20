@@ -28,4 +28,7 @@ public class ClientBusinessController {
                 .stream().map(ClientDto::new)// recorre la lista de temas y para cada tema haces un newde este dto y le pasamos un tema al constructor
                 .collect(Collectors.toList());
     }
+    public void delete(String id) {
+        DaoFactory.getFactory().getClientsDao().deleteById(id);
+    }
 }

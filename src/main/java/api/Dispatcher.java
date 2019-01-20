@@ -41,7 +41,8 @@ public class Dispatcher {
                 case PATCH:
                     throw new RequestInvalidException("method error: " + request.getMethod());
                 case DELETE:
-                    throw new RequestInvalidException("method error: " + request.getMethod());
+                    this.doDelete(request);
+                    break;
                 default: // Unexpected
                     throw new RequestInvalidException("method error: " + request.getMethod());
 
@@ -81,6 +82,14 @@ public class Dispatcher {
     private void doGet(HttpRequest request, HttpResponse response) {
         if (request.isEqualsPath(ClientsApiController.CLIENTS)) {
             response.setBody(this.clientsApiController.readAll());
+        } else {
+            throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
+        }
+    }
+
+    private void doDelete(HttpRequest request) {
+        if (request.isEqualsPath(ClientsApiController.CLIENTS + ClientsApiController.ID_ID)) {
+            this.clientsApiController.delete(request.getPath(1));
         } else {
             throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
         }

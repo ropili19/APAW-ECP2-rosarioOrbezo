@@ -33,4 +33,7 @@ public class ClientsApiController {
         return this.clientsBusinessController.readAll();
     }
 
+    public void delete(String id) {
+        this.clientsBusinessController.delete(id);
+    }
 }
