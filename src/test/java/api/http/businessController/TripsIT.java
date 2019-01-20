@@ -1,11 +1,8 @@
 package api.http.businessController;
 
-import api.apiControllers.ClientsApiController;
 import api.apiControllers.TripsApiController;
-import api.dtos.ClientDto;
 import api.dtos.TripsDto;
 import api.entities.State;
-import api.entities.Trip;
 import http.Client;
 import http.HttpException;
 import http.HttpRequest;
@@ -37,7 +34,7 @@ public class TripsIT {
 
     @Test
     void testCreateClientWithoutClientDtoName() {
-        HttpRequest request = HttpRequest.builder(TripsApiController.TRIPS).body(new TripsDto(null,null)).post();
+        HttpRequest request = HttpRequest.builder(TripsApiController.TRIPS).body(new TripsDto(null, null)).post();
         HttpException exception = assertThrows(HttpException.class, () -> new Client().submit(request));
         assertEquals(HttpStatus.BAD_REQUEST, exception.getHttpStatus());
     }
@@ -51,7 +48,6 @@ public class TripsIT {
     }
 
 
-
     @Test
     void testSearchTripsByOriginIsNotEmpty() {
         this.createTrips();
@@ -62,9 +58,9 @@ public class TripsIT {
         assertFalse(trips.isEmpty());
     }
 
-   @Test
+    @Test
     void testSearchTripsByOriginIsEmpty() {
-       this.createTrips();
+        this.createTrips();
         HttpRequest request = HttpRequest.builder(TripsApiController.TRIPS).path(TripsApiController.SEARCH)
                 .param("q", "origin:paris").get();
         List<TripsDto> trips = (List<TripsDto>) new Client().submit(request).getBody();

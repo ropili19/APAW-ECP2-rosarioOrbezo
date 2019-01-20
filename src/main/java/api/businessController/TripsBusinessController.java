@@ -16,6 +16,7 @@ public class TripsBusinessController {
         return trip.getId();
 
     }
+
     public void delete(String id) {
         DaoFactory.getFactory().getClientsDao().deleteById(id);
     }
@@ -28,10 +29,10 @@ public class TripsBusinessController {
     }
 
     public List<TripsDto> findByOrigin(String origin) {
-            return DaoFactory.getFactory().getTripsDao().findAll().stream()
-                    .filter(trip -> trip.getOrigin().equals(origin))
-                    .map(TripsDto::new)
-                    .collect(Collectors.toList());
-        }
+        return DaoFactory.getFactory().getTripsDao().findAll().stream()
+                .filter(trip -> trip.getOrigin().equals(origin))
+                .map(TripsDto::new)
+                .collect(Collectors.toList());
+    }
 
 }

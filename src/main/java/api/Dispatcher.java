@@ -69,6 +69,7 @@ public class Dispatcher {
             throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
         }
     }
+
     private void doPost(HttpRequest request, HttpResponse response) {
         if (request.isEqualsPath(clientsApiController.CLIENTS)) {
             response.setBody(this.clientsApiController.create((ClientDto) request.getBody()));
@@ -92,7 +93,7 @@ public class Dispatcher {
     private void doGet(HttpRequest request, HttpResponse response) {
         if (request.isEqualsPath(ClientsApiController.CLIENTS)) {
             response.setBody(this.clientsApiController.readAll());
-        }else if (request.isEqualsPath(TripsApiController.TRIPS + TripsApiController.SEARCH)) {
+        } else if (request.isEqualsPath(TripsApiController.TRIPS + TripsApiController.SEARCH)) {
             response.setBody(this.tripsApiController.find(request.getParams().get("q")));
         } else {
             throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
