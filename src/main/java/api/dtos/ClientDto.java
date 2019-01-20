@@ -11,6 +11,7 @@ public class ClientDto {
         this.name = client.getName();
         this.surname = client.getSurname();
     }
+
     public ClientDto(String name, String surname) {
         this.name = name;
         this.surname = surname;

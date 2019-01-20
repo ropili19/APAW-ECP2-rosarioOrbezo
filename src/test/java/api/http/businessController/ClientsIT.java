@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ClientsIT {
     private static final int MAX_ELEMENTS = 4;
+
     @Test
     void testCreateClient() {
         this.createClient();
@@ -67,13 +68,13 @@ public class ClientsIT {
     }
 
 
-  @Test
-  void testReadAll() {
-      for (int i = 0; i < MAX_ELEMENTS; i++) {
-          this.createClient();
-      }
-      HttpRequest request = HttpRequest.builder(ClientsApiController.CLIENTS).get();
-      List<ClientDto> clients = (List<ClientDto>) new Client().submit(request).getBody();
-      assertTrue(clients.size() >= MAX_ELEMENTS);
-  }
+    @Test
+    void testReadAll() {
+        for (int i = 0; i < MAX_ELEMENTS; i++) {
+            this.createClient();
+        }
+        HttpRequest request = HttpRequest.builder(ClientsApiController.CLIENTS).get();
+        List<ClientDto> clients = (List<ClientDto>) new Client().submit(request).getBody();
+        assertTrue(clients.size() >= MAX_ELEMENTS);
+    }
 }

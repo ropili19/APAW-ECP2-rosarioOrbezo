@@ -23,7 +23,7 @@ public class ClientBusinessController {
         DaoFactory.getFactory().getClientsDao().save(client);
     }
 
-   public List<ClientDto> readAll() {
+    public List<ClientDto> readAll() {
         return DaoFactory.getFactory().getClientsDao().findAll()//lista de temas
                 .stream().map(ClientDto::new)// recorre la lista de temas y para cada tema haces un newde este dto y le pasamos un tema al constructor
                 .collect(Collectors.toList());
