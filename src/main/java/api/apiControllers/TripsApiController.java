@@ -2,11 +2,13 @@ package api.apiControllers;
 
 import api.businessController.TripsBusinessController;
 import api.dtos.TripsDto;
+import api.entities.State;
 import exceptions.ArgumentNotValidException;
 
 public class TripsApiController {
     public static final String TRIPS = "/trips";
-
+    public static final String ID_ID = "/{id}";
+    public static final String STATE = "/state";
     private TripsBusinessController tripsBusinessController = new TripsBusinessController();
 
     public String create(TripsDto tripsDto) {
@@ -21,5 +23,10 @@ public class TripsApiController {
         if (property == null) {
             throw new ArgumentNotValidException(message + "is NULL");
         }
+    }
+
+    public void updateSate(String themeId, State state) {
+        this.validate(state, "state");
+        this.tripsBusinessController.updateCategory(themeId, state);
     }
 }
