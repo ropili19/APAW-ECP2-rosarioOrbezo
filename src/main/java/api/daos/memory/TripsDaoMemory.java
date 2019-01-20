@@ -2,6 +2,8 @@ package api.daos.memory;
 import api.daos.TripsDao;
 import api.entities.Trip;
 
+import java.util.List;
+
 public class TripsDaoMemory extends GenericDaoMemory<Trip> implements TripsDao {
     @Override
     public String getId(Trip trip) {
@@ -12,4 +14,6 @@ public class TripsDaoMemory extends GenericDaoMemory<Trip> implements TripsDao {
     public void setId(Trip trip, String id) {
         trip.setId(id);
     }
+
+
 }
