@@ -8,6 +8,7 @@ import api.daos.memory.DaoMemoryFactory;
 import api.dtos.ClientDto;
 import api.dtos.MeansOfTransportDto;
 import api.dtos.TripsDto;
+import api.entities.State;
 import exceptions.ArgumentNotValidException;
 import exceptions.NotFoundException;
 import exceptions.RequestInvalidException;
@@ -19,6 +20,7 @@ public class Dispatcher {
     private ClientsApiController clientsApiController = new ClientsApiController();
     private MeansTransportApiController meanssApiController = new MeansTransportApiController();
     private TripsApiController tripsApiController = new TripsApiController();
+
     public static final String ID_ID = "/{id}";
 
     static {
@@ -33,14 +35,17 @@ public class Dispatcher {
                     this.doPost(request, response);
                     break;
                 case GET:
-                    throw new RequestInvalidException("method error: " + request.getMethod());
+                    this.doGet(request, response);
+                    break;
                 case PUT:
                     this.doPut(request);
                     break;
                 case PATCH:
-                    throw new RequestInvalidException("method error: " + request.getMethod());
+                    this.doPatch(request);
+                    break;
                 case DELETE:
-                    throw new RequestInvalidException("method error: " + request.getMethod());
+                    this.doDelete(request);
+                    break;
                 default: // Unexpected
                     throw new RequestInvalidException("method error: " + request.getMethod());
 
@@ -54,6 +59,14 @@ public class Dispatcher {
         } catch (Exception exception) {
             response.setBody(String.format(ERROR_MESSAGE, exception));
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    private void doPatch(HttpRequest request) {
+        if (request.isEqualsPath(TripsApiController.TRIPS + TripsApiController.ID_ID + TripsApiController.STATE)) {
+            this.tripsApiController.updateSate(request.getPath(1), (State) request.getBody());
+        } else {
+            throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
         }
     }
 
@@ -71,7 +84,25 @@ public class Dispatcher {
 
     private void doPut(HttpRequest request) {
         if (request.isEqualsPath(ClientsApiController.CLIENTS + ClientsApiController.ID_ID)) {
-            this.clientsApiController.update(request.getPath(0), (ClientDto) request.getBody());
+            this.clientsApiController.update(request.getPath(1), (ClientDto) request.getBody());
+        } else {
+            throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
+        }
+    }
+
+    private void doGet(HttpRequest request, HttpResponse response) {
+        if (request.isEqualsPath(ClientsApiController.CLIENTS)) {
+            response.setBody(this.clientsApiController.readAll());
+        } else if (request.isEqualsPath(TripsApiController.TRIPS + TripsApiController.SEARCH)) {
+            response.setBody(this.tripsApiController.find(request.getParams().get("q")));
+        } else {
+            throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
+        }
+    }
+
+    private void doDelete(HttpRequest request) {
+        if (request.isEqualsPath(ClientsApiController.CLIENTS + ClientsApiController.ID_ID)) {
+            this.clientsApiController.delete(request.getPath(1));
         } else {
             throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
         }

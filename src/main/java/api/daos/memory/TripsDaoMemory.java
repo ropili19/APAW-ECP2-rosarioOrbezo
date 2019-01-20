@@ -1,4 +1,5 @@
 package api.daos.memory;
+
 import api.daos.TripsDao;
 import api.entities.Trip;
 

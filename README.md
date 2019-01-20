@@ -100,7 +100,7 @@ Respuesta
 ## GET /clients
 Respuesta
 *	200 OK
-	[ {id:String,reference:String} ]
+	[ {name:String,surname:String} ]
 ## DELETE /clients/{id}
 Respuesta
 *	200 OK
@@ -108,7 +108,7 @@ Respuesta
 
 ## PATH /trips/{id}/state
 Parámetros del cuerpo
-category: String (requerido)
+state: String (requerido)
 Respuesta
 *	200 OK
 *	403 BAD_REQUEST
@@ -117,5 +117,5 @@ Respuesta
 Respuesta
 
 	* 200 OK
-	[ {id:String,reference:String} ]
+	[ {origin:String,destination:String,clients:[],meanlist:[],state:String} ]
 	* 403 BAD_REQUEST

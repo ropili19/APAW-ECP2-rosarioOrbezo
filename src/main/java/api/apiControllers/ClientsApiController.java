@@ -4,6 +4,8 @@ import api.businessController.ClientBusinessController;
 import api.dtos.ClientDto;
 import exceptions.ArgumentNotValidException;
 
+import java.util.List;
+
 public class ClientsApiController {
     public static final String CLIENTS = "/clients";
     public static final String ID_ID = "/{id}";
@@ -25,5 +27,13 @@ public class ClientsApiController {
         this.validate(clientDto, "userDto");
         this.validate(clientDto.getName(), "ClientDto surname");
         this.clientsBusinessController.update(id, clientDto);
+    }
+
+    public List<ClientDto> readAll() {
+        return this.clientsBusinessController.readAll();
+    }
+
+    public void delete(String id) {
+        this.clientsBusinessController.delete(id);
     }
 }
