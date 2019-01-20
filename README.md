@@ -108,7 +108,7 @@ Respuesta
 
 ## PATH /trips/{id}/state
 Parámetros del cuerpo
-state: String (requerido)
+id: String (requerido)
 Respuesta
 *	200 OK
 *	403 BAD_REQUEST
