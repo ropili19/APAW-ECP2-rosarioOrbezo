@@ -8,6 +8,7 @@ import api.daos.memory.DaoMemoryFactory;
 import api.dtos.ClientDto;
 import api.dtos.MeansOfTransportDto;
 import api.dtos.TripsDto;
+import api.entities.State;
 import exceptions.ArgumentNotValidException;
 import exceptions.NotFoundException;
 import exceptions.RequestInvalidException;
@@ -39,7 +40,8 @@ public class Dispatcher {
                     this.doPut(request);
                     break;
                 case PATCH:
-                    throw new RequestInvalidException("method error: " + request.getMethod());
+                    this.doPatch(request);
+                    break;
                 case DELETE:
                     this.doDelete(request);
                     break;
@@ -59,6 +61,13 @@ public class Dispatcher {
         }
     }
 
+    private void doPatch(HttpRequest request) {
+        if (request.isEqualsPath(TripsApiController.TRIPS + TripsApiController.ID_ID + TripsApiController.STATE)) {
+            this.tripsApiController.updateSate(request.getPath(1), (State) request.getBody());
+        } else {
+            throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
+        }
+    }
     private void doPost(HttpRequest request, HttpResponse response) {
         if (request.isEqualsPath(clientsApiController.CLIENTS)) {
             response.setBody(this.clientsApiController.create((ClientDto) request.getBody()));

@@ -41,7 +41,13 @@ public class TripsIT {
         assertEquals(HttpStatus.BAD_REQUEST, exception.getHttpStatus());
     }
 
-
+    @Test
+    void testUpdateState() {
+        String id = this.createTrips();
+        HttpRequest request = HttpRequest.builder(TripsApiController.TRIPS).path(TripsApiController.ID_ID)
+                .expandPath(id).path(TripsApiController.STATE).body(State.RESERVED).patch();
+        new Client().submit(request);
+    }
 
 
 }
