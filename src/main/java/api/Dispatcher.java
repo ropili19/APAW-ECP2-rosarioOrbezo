@@ -33,7 +33,8 @@ public class Dispatcher {
                     this.doPost(request, response);
                     break;
                 case GET:
-                    throw new RequestInvalidException("method error: " + request.getMethod());
+                    this.doGet(request,response);
+                    break;
                 case PUT:
                     this.doPut(request);
                     break;
@@ -71,7 +72,15 @@ public class Dispatcher {
 
     private void doPut(HttpRequest request) {
         if (request.isEqualsPath(ClientsApiController.CLIENTS + ClientsApiController.ID_ID)) {
-            this.clientsApiController.update(request.getPath(0), (ClientDto) request.getBody());
+            this.clientsApiController.update(request.getPath(1), (ClientDto) request.getBody());
+        } else {
+            throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
+        }
+    }
+
+    private void doGet(HttpRequest request, HttpResponse response) {
+        if (request.isEqualsPath(ClientsApiController.CLIENTS)) {
+            response.setBody(this.clientsApiController.readAll());
         } else {
             throw new RequestInvalidException("request error: " + request.getMethod() + ' ' + request.getPath());
         }
