@@ -16,6 +16,7 @@ public class TripsBusinessController {
     public void delete(String id) {
         DaoFactory.getFactory().getClientsDao().deleteById(id);
     }
+
     public void updateCategory(String tripId, State state) {
         Trip trip = DaoFactory.getFactory().getTripsDao().read(tripId)
                 .orElseThrow(() -> new NotFoundException("Trip (" + tripId + ")"));
